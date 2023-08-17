@@ -1,0 +1,17 @@
+spring:
+  datasource:
+    driverClassName: com.mysql.cj.jdbc.Driver
+    url: ${JDBC_DATABASE_URL:jdbc:mysql://192.168.0.103:3306/distilery?allowPublicKeyRetrieval=true&useSSL=false&createDatabaseIfNotExist=true&serverTimezone=UTC&useUnicode=true&characterEncoding=UTF-8}
+    username: ${JDBC_DATABASE_USERNAME:root}
+    password: ${JDBC_DATABASE_PASSWORD:mysql}
+  jpa:
+    database-platform: org.hibernate.dialect.MySQL8Dialect
+    hibernate:
+      ddl-auto: update
+      defer-datasource-initialization: true
+  servlet.multipart.max-file-size: 20MB
+  servlet.multipart.max-request-size: 20MB
+  mvc:
+    hiddenmethod:
+      filter:
+        enabled: true
