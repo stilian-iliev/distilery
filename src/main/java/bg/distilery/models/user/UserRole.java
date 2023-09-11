@@ -9,18 +9,18 @@ import java.util.UUID;
 @Table(name = "roles")
 public class UserRole {
     @Id
-    @GeneratedValue(strategy = GenerationType.UUID)
-    private UUID id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
     @Column(nullable = false)
     @Enumerated(EnumType.STRING)
     private UserRoleEnum name;
 
-    public UUID getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(UUID id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
