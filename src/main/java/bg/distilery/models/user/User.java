@@ -3,6 +3,7 @@ package bg.distilery.models.user;
 import bg.distilery.models.order.ShippingDetails;
 import jakarta.persistence.*;
 
+import java.util.HashSet;
 import java.util.Set;
 import java.util.UUID;
 
@@ -23,6 +24,11 @@ public class User {
 
     @OneToMany
     private Set<ShippingDetails> shippingDetails;
+
+    public User() {
+        this.roles = new HashSet<>();
+        this.shippingDetails = new HashSet<>();
+    }
 
     public UUID getId() {
         return id;
@@ -62,5 +68,9 @@ public class User {
 
     public void setShippingDetails(Set<ShippingDetails> shippingDetails) {
         this.shippingDetails = shippingDetails;
+    }
+
+    public void addRole(UserRole role) {
+        this.roles.add(role);
     }
 }
